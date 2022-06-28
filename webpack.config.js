@@ -12,7 +12,11 @@ function setupDevtool() {
 
 module.exports = {
 	resolve: {
-		extensions: ['.js','.jsx', '.ts', '.tsx', '.json']
+		extensions: ['.js','.jsx', '.ts', '.tsx', '.json'],
+		alias: {
+			'@assets' : path.resolve(__dirname, 'src/assets/'),
+			'@utils' : path.resolve(__dirname, 'src/utils/')
+		}
 	},
 	mode: NODE_ENV ? NODE_ENV  : 'development',
 	entry: path.resolve(__dirname, 'src/index.jsx'),
@@ -46,8 +50,19 @@ module.exports = {
 			{
 				test: GOBAL_CSS_REGEXP,
 				use: ['style-loader', 'css-loader']
+			}, 
+			{
+				test: /\.svg$/,
+				// issuer: /\.[jt]sx?$/,
+				use: [ 
+					{ 
+						loader: 'svg-sprite-loader', 
+						options: { outputPath: './src/assets/icons/'}
+					}
+				]
 			}
-		]
+		],
+		
 	},
 	plugins: [
 		new HTMLWebpackPlugin({ template: path.resolve(__dirname, 'index.html')})
@@ -57,6 +72,8 @@ module.exports = {
 		open: true,
 		hot: IS_DEV
 	},
-	devtool: setupDevtool()
+	devtool: setupDevtool(),
+	
+
 
 }

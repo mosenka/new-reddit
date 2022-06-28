@@ -6,7 +6,9 @@ import  {Content}  from './components/Content/Content';
 import  {CardsList}  from './components/CardsList/CardsList';
 
 
+
 export function App() {
+
 	return (<Layout>
 			<Header />
 			<Content>

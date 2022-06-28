@@ -1,7 +1,15 @@
+.karmaCounter {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+}
+
 .karmaCounter > * + * {
 	padding: 0 0 0 4px;
   }
   
+
   .karmaValue {
 	color: var(--greyC4);
 	font-size: 12px;
@@ -11,11 +19,19 @@
   svg.down {
 	transform: rotate(180deg);
   }
-  
+
+ 
+
+  svg.karmaArrow  {
+	fill: #C4C4C4
+}
+/* .karmaArrow #arrow path{
+	fill: inherit;
+} */
   @media all and (min-width: 1024px) {
 	.karmaCounter {
-	  display: flex;
-	  align-items: center;
+	  /* display: flex;
+	  align-items: center; */
 	  justify-content: center;
 	  flex-flow: column nowrap;
 	}
@@ -31,12 +47,11 @@
   }
   
   @media all and (min-width: 1540px) {
-	.karmaCounter > button.up:hover > svg > path {
-	  fill: var(--green);
+	.karmaCounter > button:hover > .karmaArrow > * {
+		fill: var(--green);
 	}
-  
-	.karmaCounter > button.down:hover > svg > path {
-	  fill: var(--orange);
+	.karmaCounter > button:hover > svg.down > * {
+		fill: var(--orange);
 	}
-  }
+}
   

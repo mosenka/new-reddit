@@ -47,3 +47,11 @@ button {
   background: transparent;
   cursor: pointer;
 }
+svg {
+  fill: inherit;
+}
+svg path {
+  fill: inherit;
+}
+
+
