@@ -1,18 +1,19 @@
 import React from 'react';
 import styles from './menu.css';
 
-import { Button } from '../../../Button';
-import { Icons } from '../../../Icons';
-import menuIcon  from '@assets/icons/menu.svg';
+import { Button, EBackgroundColor } from '../../../Button';
+import { EColorIcon, EIcons, Icon } from '../../../Icon';
 import { Dropdown } from '../../../Dropdown';
 import { MenuItemsList } from './MenuItemsList';
 
 export function Menu() {
   return ( <div className={styles.menu}>
     <Dropdown 
-      button={<Button className={styles.menuButton}><Icons width={5} height={20} icon={menuIcon}></Icons></Button>  }>
+      button={ <div className={styles.menuButton}><Button background={EBackgroundColor.white} round centered size={30} >
+          <Icon width={5} height={20} icon={EIcons.menu} color={EColorIcon.grey99}></Icon> 
+        </Button></div>  }>
         <div className={styles.dropdown}>
-          < MenuItemsList />
+          < MenuItemsList postId='123'/>
           <button className={styles.closeButton}>Закрыть</button>
 
         </div>

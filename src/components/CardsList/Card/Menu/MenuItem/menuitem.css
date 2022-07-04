@@ -6,15 +6,19 @@
 	align-items: center;
 	cursor: pointer;
   }
-
-  .menuItem > svg + span {
-	margin-left: 7px;
+  
+  .menuItem_mobile {
+	display: flex;
   }
 
-  .menuItem:nth-last-child(-n+2) {
+  /* .menuItem > svg + span {
+	margin-left: 7px;
+  } */
+
+  /* .menuItem:nth-last-child(-n+2) {
 		display: flex;
 
-  }
+  } */
 
   .menuItem:not(:last-child)::after {
 	content: '';

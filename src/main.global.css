@@ -13,6 +13,7 @@
   --greyC4:         hsl(0, 0%, calc(var(--whiteLightness) - 23%));
   --grey99:         hsl(0, 0%, calc(var(--whiteLightness) - 40%));
   --grey66:         hsl(0, 0%, calc(var(--whiteLightness) - 60%));
+  --grey33:         hsl(0, 0%, calc(var(--whiteLightness) - 80%));
 }
 
 body {

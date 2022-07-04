@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const NODE_ENV = process.env.NODE_ENV;
 const IS_DEV = NODE_ENV == 'development';
 const IS_PROD = NODE_ENV == 'production';
@@ -65,7 +66,13 @@ module.exports = {
 		
 	},
 	plugins: [
-		new HTMLWebpackPlugin({ template: path.resolve(__dirname, 'index.html')})
+		new HTMLWebpackPlugin({ template: path.resolve(__dirname, 'index.html')}),
+		new SpriteLoaderPlugin({
+			plainSprite: true, 
+			spriteAttrs: {
+				id: 'icons'
+		  	}
+		})
 	],
 	devServer: {
 		port: 3000,

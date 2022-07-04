@@ -1,32 +1,43 @@
 import React from 'react';
-import { Icons } from '../../../../Icons';
+import { Icon, EIcons, EColorIcon } from '../../../../Icon';
+import { EColor, Text } from '../../../../Text';
 import styles from './menuitemslist.css';
-import hidden from '@assets/icons/hidden.svg'
-import error from '@assets/icons/error.svg'
-import save from '@assets/icons/save.svg'
-import share from '@assets/icons/share.svg'
-import comment from '@assets/icons/comment.svg'
 import { MenuItem } from '../MenuItem';
 import { generateId } from '@utils/js/generateRandomIndex';
+import { Break } from '../../../../Break';
 
 
+interface IMenuItem {
+  'name': string;
+  'icon': EIcons;
+  'height': number;  
+  'width': number;
+  'mobile' : boolean; 
+  'id': string;  
+}
 
 
-const LIST = [
-  {name: 'Комментарии', icon: comment, height: 14, width: 12 },
-  {name: 'Поделиться', icon: share, height: 14, width: 12 },
-  {name: 'Сохранить', icon: save, height: 14, width: 14 },
-  {name: 'Скрыть', icon: hidden, height: 14, width: 14 },
-  {name: 'Пожаловаться', icon: error, height: 14, width: 16 }
+const LIST: Array<IMenuItem> = [
+  {name: 'Комментарии', icon: EIcons.comment, height: 14, width: 12, mobile: false },
+  {name: 'Поделиться', icon: EIcons.share, height: 14, width: 12, mobile: false },
+  {name: 'Сохранить', icon: EIcons.save, height: 14, width: 14, mobile: false },
+  {name: 'Скрыть', icon: EIcons.hidden, height: 14, width: 14, mobile: true },
+  {name: 'Пожаловаться', icon: EIcons.error, height: 14, width: 16, mobile: true }
 ].map(generateId);
 
-export function MenuItemsList() {
+interface IMenuItemsListProps {
+  postId: string
+}
 
-  let items = LIST.map(elem => {
-    return <MenuItem text={elem.name} key={elem.id}>
-      <Icons icon={elem.icon} height={elem.height} width={elem.width} className={styles.menuIcon}/>
-      </MenuItem>
-  });
+export function MenuItemsList({postId}: IMenuItemsListProps) {
+
+  let items = LIST.map(elem => <MenuItem key={elem.id} mobile={elem.mobile} postId={postId}>
+    <Icon icon={elem.icon} height={elem.height} width={elem.width} color={EColorIcon.grey99} />
+    <Break size={6}/>
+    <Text size={12} color={EColor.grey99}>{elem.name}</Text>
+  </MenuItem>);
+
+
 
   return (<ul className={styles.menuItemsList}>
     {items}

@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from './karma.css';
-import { Button } from '../../../../Button';
-import { Icons } from '../../../../Icons';
-import arrow from '@assets/icons/arrow.svg';
+import { Button, EBackgroundColor } from '../../../../Button';
+import { EColor, Text } from '../../../../Text';
+import { EColorIcon, EIcons, Icon } from '../../../../Icon';
 
 export function Karma() {
   return ( <div className={styles.karmaCounter}>
-    <Button>
-      <Icons icon={arrow} height={10} width={19} className={styles.karmaArrow}/>
+    <Button background={EBackgroundColor.transparent}>
+      <Icon icon={EIcons.arrow} height={10} width={19} color={EColorIcon.greyC4} hover={'Orange'}/>
     </Button>
-    <span className={styles.karmaValue}>123</span>
-    <Button>
-      <Icons icon={arrow} height={10} width={19} className={`${styles.down} ${styles.karmaArrow}`}/>
+    <Text size={12} color={EColor.greyC4} mobileSize={14} bold>123</Text>
+    <Button background={EBackgroundColor.transparent}>
+      <Icon icon={EIcons.arrow} height={10} width={19} color={EColorIcon.greyC4} hover={'Green'} flip/>
     </Button>
   </div>
     

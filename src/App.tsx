@@ -7,13 +7,14 @@ import  {CardsList}  from './components/CardsList/CardsList';
 
 
 
-export function App() {
 
+export function App() {
+	
 	return (<Layout>
 			<Header />
 			<Content>
 				<CardsList/>
-			</Content>	
+			</Content>
 		</Layout>
 		
 	)

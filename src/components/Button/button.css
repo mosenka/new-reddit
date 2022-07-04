@@ -1,13 +1,62 @@
-.button {
+.button	{
+	display: inline-block;
+	width: auto;
+}
+
+
+
+.centered {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
+.round {
+	border-radius: 100%;
+}
+
+.white {
+	background-color: var(--white);
+}
+.white:active {
+	background-color: rgba(51, 51, 51, .1)
+	
+}
+
+.grey33 {
+	background-color: var(--grey33);
+}
+.greyC4 {
+	background-color: var(--greyC4);
+}
+
+.greyD9 {
+	background-color: var(--greyD9);
+}
+.transparent {
+	background-color: transparent;
+}
+
+.s30 {
+	width: 30px;
+	height: 30px;
+}
+.s20 {
+	width: 20px;
+	height: 20px;
+}
+
+@media all and (min-width: 1540px) {
+	.white:hover, .white:focus {
+		background-color: rgba(51, 51, 51, .1);
+	}
+}
+
+/* 
 .buttonText {
 	color: var(--greyC4);
 	font-weight: 500;
 	padding: 0 0 0 6px;
 	font-size: 12px;
 	line-height: 14px;
-}
+} */

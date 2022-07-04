@@ -1,0 +1,41 @@
+.icon {
+	/* fill: inherit; */
+	/* fill: red; */
+	height: 26px;
+	width: 26px;
+	transition: .3s fill;
+}
+
+.orange {
+	fill: var(--orange);
+}
+
+
+.grey99 {
+    fill: var(--grey99);
+}
+
+.greyC4 {
+    fill: var(--greyC4);
+}
+
+.white {
+	fill: #FFFFFF;
+}
+
+.flip {
+	transform: rotate(180deg);
+}
+
+@media all and (min-width: 1540px) {
+	.hOrange:hover {
+		fill: var(--orange);
+	}
+	.hGreen:hover {
+		fill: var(--green);
+	}
+	.hInherit:hover {
+		fill: inherit;
+	}
+
+}

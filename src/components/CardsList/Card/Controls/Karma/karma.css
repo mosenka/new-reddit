@@ -9,29 +9,11 @@
 	padding: 0 0 0 4px;
   }
   
-
-  .karmaValue {
-	color: var(--greyC4);
-	font-size: 12px;
-	line-height: 14px;
-  }
   
-  svg.down {
-	transform: rotate(180deg);
-  }
-
  
-
-  svg.karmaArrow  {
-	fill: #C4C4C4
-}
-/* .karmaArrow #arrow path{
-	fill: inherit;
-} */
+ 
   @media all and (min-width: 1024px) {
 	.karmaCounter {
-	  /* display: flex;
-	  align-items: center; */
 	  justify-content: center;
 	  flex-flow: column nowrap;
 	}
@@ -39,19 +21,9 @@
 	  padding: 7px 0 0;
 	}
   
-	.karmaValue {
-	  font-size: 14px;
-	  line-height: 16px;
+	.karmaCounter span {
 	  color: var(--black);
 	}
   }
   
-  @media all and (min-width: 1540px) {
-	.karmaCounter > button:hover > .karmaArrow > * {
-		fill: var(--green);
-	}
-	.karmaCounter > button:hover > svg.down > * {
-		fill: var(--orange);
-	}
-}
-  
+ 

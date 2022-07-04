@@ -1,23 +1,42 @@
 import React from 'react';
 import styles from './button.css';
-// import { Icons } from './components/Icons';
-// import save from '@assets/icons/save.svg';
+import classNames from 'classnames';
+
+
+export enum EBackgroundColor {
+  white = 'white',
+  transparent = 'transparent',
+  gray33 = 'gray33',
+  greyC4 = 'greyC4',
+  grey99 = 'grey99',
+  greyD9 = 'greyD9'
+}
+
+type TSizes = 30 | 20;
 
 interface IButtonProps {
   children: React.ReactNode;
-  text?: string;
-  className?: string;
-  // icon: React.ReactNode;
-  // icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  
+  round?: boolean;
+  centered?: boolean;
+  background?: EBackgroundColor;
+  size?: TSizes;
 
 }
 
-export function Button({children, text, className} : IButtonProps) {
-  // let icon = 'share';
-  return (<button className={`${styles.button} ${className ? className : ""}`}>
+export function Button({children, round = false, centered = false, background = EBackgroundColor.white, size } : IButtonProps) {
+  
+  const classes = classNames(
+    styles.button,
+    { [styles[`s${size}`]]: size },
+    styles[background],
+    { [styles.round] : round },
+    { [styles.centered] : centered }
+  );
+
+
+
+  return (<button className={classes}>
     {children}
-    {text ? <span className={styles.buttonText}>{text}</span> : '' }
   </button>
 
   );
