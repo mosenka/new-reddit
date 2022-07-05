@@ -18,6 +18,9 @@
 .greyC4 {
     fill: var(--greyC4);
 }
+.greyD9 {
+    fill: var(--greyD9);
+}
 
 .white {
 	fill: #FFFFFF;
@@ -34,8 +37,8 @@
 	.hGreen:hover {
 		fill: var(--green);
 	}
-	.hInherit:hover {
+	/* .hInherit:hover {
 		fill: inherit;
-	}
+	} */
 
 }

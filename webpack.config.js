@@ -1,6 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const { DefinePlugin } = require('webpack');
 const NODE_ENV = process.env.NODE_ENV;
 const IS_DEV = NODE_ENV == 'development';
 const IS_PROD = NODE_ENV == 'production';
@@ -72,7 +73,8 @@ module.exports = {
 			spriteAttrs: {
 				id: 'icons'
 		  	}
-		})
+		}),
+		new DefinePlugin({"process.env.CLIENT_ID": `'${process.env.CLIENT_ID}'`})
 	],
 	devServer: {
 		port: 3000,

@@ -9,6 +9,7 @@ import share from '@assets/icons/share.svg';
 import comment from '@assets/icons/comment.svg';
 import arrow from '@assets/icons/arrow.svg';
 import menu  from '@assets/icons/menu.svg';
+import anonym  from '@assets/icons/anonym.svg';
 
 
 
@@ -29,6 +30,7 @@ const iconsList: Array<TIconsList> = [
   { name: 'comment', symbol: comment  },
   { name: 'arrow', symbol: arrow  },
   { name: 'menu', symbol: menu  },
+  { name: 'anonym', symbol: anonym  },
 ];
 
 
@@ -40,6 +42,7 @@ export enum EIcons {
   comment = 'comment',
   arrow = 'arrow',
   menu = 'menu',
+  anonym = 'anonym',
 }
 
 export enum EColorIcon {
@@ -47,6 +50,7 @@ export enum EColorIcon {
   white = 'white',
   grey99 = 'grey99',
   greyC4 = 'greyC4',
+  greyD9 = 'greyD9',
 }
 
 type THoverColor = 'Orange' | 'Green' | 'Inherit';
