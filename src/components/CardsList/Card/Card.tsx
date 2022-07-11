@@ -5,16 +5,30 @@ import  { MetaData }  from './MetaData';
 import  { Preview }  from './Preview';
 import  { Menu }  from './Menu';
 import  { Controls }  from './Controls';
+import { UserLink } from './UserLink';
 
 
-export function Card() {
+interface ICardProps {
+  title: string;
+  url: string;
+  img: string;
+  userIcon: string;
+  userName: string;
+  link: string;
+  createdAt: number;
+}
+
+
+export function Card({title, url, img, userIcon, userName, link, createdAt}: ICardProps) {
   return (
     <li className={styles.card}>
       <div className={styles.textContent}>
-        < MetaData />
-        < Title />
+        < MetaData createdAt={createdAt}> 
+            <UserLink userIcon={userIcon} userName={userName} link={link} />
+          </MetaData>
+        < Title text={title} url={url}/>
       </div>
-      < Preview />
+      < Preview img={img}/>
       < Menu />
       < Controls />
     </li>

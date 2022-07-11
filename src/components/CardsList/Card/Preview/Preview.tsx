@@ -1,9 +1,18 @@
 import React from 'react';
 import styles from './preview.css';
 
-export function Preview() {
+import dfltImages from '@assets/img/default_image.png';
+
+
+interface IPreviewProps {
+  img: string;
+}
+
+export function Preview({img} : IPreviewProps) {
+   
   return (<div className={styles.preview}>
-    <img src="https://cdn.dribbble.com/users/1803663/screenshots/16534587/media/c335a915773ce3ba65d18d137101f017.png?compress=1&resize=840x630&vertical=top" alt="" className={styles.previewImg}/>
+  <img src={/\.jpg$/.test(img) ? img : dfltImages} alt="" className={styles.previewImg}/>
+   
   </div>
 
   );

@@ -23,6 +23,7 @@ module.exports = {
 	mode: NODE_ENV ? NODE_ENV  : 'development',
 	entry: path.resolve(__dirname, 'src/index.jsx'),
 	output: {
+		publicPath: '/',
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'index.js'
 	},
@@ -62,7 +63,15 @@ module.exports = {
 						options: { outputPath: './src/assets/icons/'}
 					}
 				]
-			}
+			},
+			{
+				test: /\.(png|jpe?g|gif)$/i,
+				use: [
+				  {
+					loader: 'file-loader',
+				  },
+				],
+			},
 		],
 		
 	},
@@ -79,7 +88,9 @@ module.exports = {
 	devServer: {
 		port: 3000,
 		open: true,
-		hot: IS_DEV
+		hot: IS_DEV,
+		historyApiFallback: true
+
 	},
 	devtool: setupDevtool(),
 	
