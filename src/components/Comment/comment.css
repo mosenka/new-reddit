@@ -1,0 +1,64 @@
+.container {
+    padding-top: 35px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+}
+.arrowsWrapper {
+    flex: 0 0 30px;
+    position: relative;
+    margin-right: 10px;
+   
+    /* border: 1px solid #000; */
+    /* margin-right: 20px; */
+}
+.arrowsWrapper::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 3px;
+    background: var(--greyD9);
+   margin-left: 8.5px;
+
+}
+.arrows {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.wrapper {
+    flex: 1 1
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+.header *:not(:first-child) {
+    margin-right: 5px;
+}
+.creates {
+    color: var( --grey99);
+    font-size: 14px;
+}
+.community {
+    background: var(--greyD9);
+    padding: 7px 5px;
+}
+.actions {
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 10px 0;
+}
+.replay {
+    width: auto;
+}

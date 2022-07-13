@@ -10,12 +10,11 @@ import { postsContext } from '../../context/postsContext';
 export function CardsList() {
   const posts = useContext(postsContext);
 
-  console.log(posts);
 
   let list = posts.map(post => {
 
     const key = uuidv4();
-    console.log(post);
+    // console.log(post);
     
     // return <li>test</li>
     

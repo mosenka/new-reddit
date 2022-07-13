@@ -5,7 +5,7 @@ import  { MetaData }  from './MetaData';
 import  { Preview }  from './Preview';
 import  { Menu }  from './Menu';
 import  { Controls }  from './Controls';
-import { UserLink } from './UserLink';
+import { UserLink } from '../../UserLink';
 
 
 interface ICardProps {

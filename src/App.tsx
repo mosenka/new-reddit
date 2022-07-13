@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './main.global.css'
 import { Layout } from './components/Layout/Layout';
 import  { Header }  from './components/Header/Header';
@@ -9,6 +9,7 @@ import { tokenContext } from './context/tokenContext';
 import { UserContextProvider } from './context/userContext';
 import axios from 'axios';
 import { PostsContextProvider } from './context/postsContext';
+import { commentContext } from './context/commentContext';
 
 
 
@@ -16,21 +17,29 @@ import { PostsContextProvider } from './context/postsContext';
 
 export function App() {
     const [token] = useToken();
+    // const [commentValue, setCommentValue] = React.useState('');
     
-    
+    // const ComentProvider = commentContext.Provider;
+
 	return (
-    <tokenContext.Provider value={token}>
-       <UserContextProvider>
-            <Layout>
-                <Header />
-                <Content>
-                    <PostsContextProvider>
-                        <CardsList/>
-                    </PostsContextProvider>
-                </Content>
-            </Layout>
-       </UserContextProvider>
-    </tokenContext.Provider>	
+        // <ComentProvider value={{
+        //     value: commentValue,
+        //     onChange: setCommentValue
+        // }}>
+            <tokenContext.Provider value={token}>
+                <UserContextProvider>
+                        <Layout>
+                            <Header />
+                            <Content>
+                                <PostsContextProvider>
+                                    <CardsList/>
+                                </PostsContextProvider>
+                            </Content>
+                        </Layout>
+                </UserContextProvider>
+            </tokenContext.Provider>	
+        // </ComentProvider>
+    
 	)
 }
 

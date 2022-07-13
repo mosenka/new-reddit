@@ -24,7 +24,7 @@ interface BrowserSpriteSymbol {
 type TIconsList = { 'name': string; symbol: BrowserSpriteSymbol}
 const iconsList: Array<TIconsList> = [
   { name: 'save', symbol: save  },
-  { name: 'error', symbol: save  },
+  { name: 'error', symbol: error  },
   { name: 'hidden', symbol: hidden  },
   { name: 'share', symbol: share  },
   { name: 'comment', symbol: comment  },

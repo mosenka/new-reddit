@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './break.css';
 import classNames from 'classnames';
 
-type TBreakSize = 4 | 6 | 8 | 12 | 16 | 20;
+type TBreakSize = 4 | 6 | 8 | 10 | 12 | 16 | 20 | 30;
 type TDisplays = 'mobile' | 'tablet' | 'desktop';
 
 
