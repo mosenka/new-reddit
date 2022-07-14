@@ -7,7 +7,16 @@ import {
 	Link
   } from "react-router-dom";
 
+import { composeWithDevTools } from 'redux-devtools-extension';
 
+import { Provider} from 'react-redux';
+
+import { rootReducer } from './store';
+
+
+import { createStore } from 'redux';
+
+const store = createStore(rootReducer, composeWithDevTools());
 
 
 import { App } from './App';
@@ -17,17 +26,18 @@ import { App } from './App';
 
 window.addEventListener('load', () => {
 	ReactDOM.render(
-	<Router>
-        <Switch>
-          <Route exact path="/">
-            <App />
-          </Route>
-          <Route path="/auth">
-            <App />
-          </Route>
-        </Switch>
-    </Router>
-	
+    <Provider store={store}>
+      <Router>
+            <Switch>
+              <Route exact path="/">
+                <App />
+              </Route>
+              <Route path="/auth">
+                <App />
+              </Route>
+            </Switch>
+        </Router>
+    </Provider>
 	
 	, document.getElementById('react-root'));
 

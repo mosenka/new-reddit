@@ -1,18 +1,19 @@
-import React, { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react';
-import { commentContext } from '../../context/commentContext';
+import React, { ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, updateComment } from '../../store';
 import styles from './commentform.css';
 
-export function CommentForm() {
-  const [value, setValue] = useState('')
-  // const { value, onChange } = useContext(commentContext);
 
-  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    setValue(event.target.value);
+interface ICommentFormProps {
+  value: string;
+  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+}
 
-  }
+export function CommentForm({value, onChange } : ICommentFormProps) {
+ 
 
   return (<form action="" className={styles.form}>
-    <textarea className={styles.input} value={value} onChange={handleChange}></textarea>
+    <textarea className={styles.input} value={value} onChange={onChange}></textarea>
     <button type='submit' className={styles.button}>Комментировать</button>
   </form>
 

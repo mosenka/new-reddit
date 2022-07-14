@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { tokenContext } from "../context/tokenContext";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 
 
 export function usePostsData() {
     const [data, setData] = useState([]);
-    const token = useContext(tokenContext);
+	const token = useSelector<RootState, string>(state => state.token);
     
     useEffect(() => {
 		axios.get('https://oauth.reddit.com/best.json?limit=10&sr_detail=true',{

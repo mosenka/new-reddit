@@ -12,7 +12,7 @@ interface IUserBlockSrc {
 
 export function UserBlock({avatarSrc, username} : IUserBlockSrc) {
   return ( <a 
-    href="https://www.reddit.com/api/v1/authorize?client_id=FDg6L8XpFIJNNSSd9vt-Lg&response_type=token&state=ranom_string&redirect_uri=http://localhost:3000/auth?&scope=read submit identity" 
+    href="https://www.reddit.com/api/v1/authorize?client_id=9cWRnDfmAatnHz759osh2g&response_type=token&state=ranom_string&redirect_uri=http://localhost:3000/auth?&scope=read submit identity" 
     className={styles.userBox}>
     <div className={styles.avatarBox}>
       {avatarSrc 
