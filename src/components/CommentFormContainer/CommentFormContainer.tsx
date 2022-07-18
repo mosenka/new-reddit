@@ -14,12 +14,14 @@ export function CommentFormContainer() {
 
   }
 
-  return (<CommentForm 
+  return <p>comment form</p>
+  
+/*   (<CommentForm 
     value={value}
     onChange={handleChange}
   
   
-  />)
+  />) */
     
   }
 

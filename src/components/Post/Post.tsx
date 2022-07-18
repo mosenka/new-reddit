@@ -38,7 +38,8 @@ export function Post({onClose}: IPostProps) {
       <p>Reprehenderit ab soluta iusto esse sunt molestias voluptatem autem in deserunt quia quo, quas facere exercitationem voluptas vero vel accusantium assumenda ratione. Facere debitis magni porro possimus dolorem sequi numquam, minima amet sed tenetur consequatur voluptates officia quasi quibusdam quaerat similique quod dolorum.</p>
       <p>Repellendus, neque expedita obcaecati cumque eveniet earum consequuntur odit, hic doloremque accusamus quo commodi fugit repellat. Unde error quisquam maiores iusto neque commodi cupiditate placeat sunt laboriosam soluta praesentium dolores, cum doloremque nobis facere animi, recusandae ipsam eos.</p>
     </div>
-    <CommentFormContainer />
+    {/* <CommentFormContainer /> */}
+    <CommentForm />
     <div className={styles.comments}>
       <Comment userName={'Михаил Рогов'}>
         <Comment userName={'Иван Иванов'}></Comment>
