@@ -8,9 +8,10 @@ import styles from './userblock.css';
 interface IUserBlockSrc {
   avatarSrc?: string;
   username?: string;
+  loading?: boolean;
 }
 
-export function UserBlock({avatarSrc, username} : IUserBlockSrc) {
+export function UserBlock({avatarSrc, username, loading } : IUserBlockSrc) {
   return ( <a 
     href="https://www.reddit.com/api/v1/authorize?client_id=9cWRnDfmAatnHz759osh2g&response_type=token&state=ranom_string&redirect_uri=http://localhost:3000/auth?&scope=read submit identity" 
     className={styles.userBox}>
@@ -23,7 +24,11 @@ export function UserBlock({avatarSrc, username} : IUserBlockSrc) {
     </div>
     <div className={styles.username}>
       <Break size={12}/>
-      <Text size={20} color={username ? EColor.black : EColor.grey99}>{username || 'Аноним'}</Text>
+      { loading ? 
+      (<Text size={20} color={username ? EColor.black : EColor.grey99}>{username || 'Загрузка данных'}</Text>) :
+      
+      ( <Text size={20} color={username ? EColor.black : EColor.grey99}>{username || 'Аноним'}</Text>)
+      }
     </div>
 
   </a>

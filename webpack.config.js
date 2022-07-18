@@ -21,7 +21,7 @@ module.exports = {
 		}
 	},
 	mode: NODE_ENV ? NODE_ENV  : 'development',
-	entry: path.resolve(__dirname, 'src/index.jsx'),
+	entry: path.resolve(__dirname, 'src/index.tsx'),
 	output: {
 		publicPath: '/',
 		path: path.resolve(__dirname, 'dist'),
@@ -93,7 +93,5 @@ module.exports = {
 
 	},
 	devtool: setupDevtool(),
-	
-
 
 }

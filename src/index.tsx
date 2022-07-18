@@ -1,28 +1,27 @@
 import * as React from 'react';
 import ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
 	Link
   } from "react-router-dom";
+// import { createStore } from 'redux';
+  import { App } from './App';
+
+
+import { rootReducer } from './store/reducer';
+import { createStore, applyMiddleware } from 'redux';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk, { ThunkAction } from 'redux-thunk';
+  
+  
 
-import { Provider} from 'react-redux';
-
-import { rootReducer } from './store';
-
-
-import { createStore } from 'redux';
-
-const store = createStore(rootReducer, composeWithDevTools());
-
-
-import { App } from './App';
-
-
-
+const store = createStore(rootReducer, composeWithDevTools(
+    applyMiddleware(thunk)
+));
 
 window.addEventListener('load', () => {
 	ReactDOM.render(
@@ -38,7 +37,6 @@ window.addEventListener('load', () => {
             </Switch>
         </Router>
     </Provider>
-	
 	, document.getElementById('react-root'));
 
 }); 
