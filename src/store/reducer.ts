@@ -3,11 +3,14 @@ import { Action, ActionCreator, AnyAction, Reducer } from "redux";
 import { ThunkAction } from "redux-thunk";
 import { MeRequestAction, MeRequestActionError, MeRequestActionSuccess, ME_REQUEST, ME_REQUEST_ERROR, ME_REQUEST_SUCCESS } from "./me/actions";
 import { meReducer, meState } from "./me/reducer";
+import { PostsRequestAction, PostsRequestActionError, PostsRequestActionSuccess, POSTS_REQUEST, POSTS_REQUEST_ERROR, POSTS_REQUEST_SUCCESS } from "./posts/actions";
+import { postsReducer, postsState } from "./posts/reducer";
 
 export type RootState = {
     commentContext: string;
     token: string;
-    me:  meState 
+    me:  meState;
+    posts: postsState; 
 }
 const initalSatate = {
     commentContext: 'Привет test',
@@ -16,6 +19,12 @@ const initalSatate = {
         loading: false,
         error: '',
         data: {}
+    },
+    posts: {
+        data: [],
+        loading: false,
+        errorLoading: '',
+        nextAfter: '',
     }
 }
 const UPDATE_COMMENT = 'UPDATE_COMMENT';
@@ -43,7 +52,7 @@ export const setToken: ActionCreator<setTokenAction> = (text: string) => ({
     text
 })
 
-type myAction = updateCommentAction | setTokenAction |  MeRequestAction | MeRequestActionSuccess | MeRequestActionError;
+type myAction = updateCommentAction | setTokenAction |  MeRequestAction | MeRequestActionSuccess | MeRequestActionError | PostsRequestAction | PostsRequestActionSuccess | PostsRequestActionError;
 
 
 
@@ -55,10 +64,6 @@ export const saveToken = (): ThunkAction<void, RootState, unknown, Action<string
     const [hash, str]: Array<string> = reg;
     dispatch(setToken(str));
 }
-
-
-
-
 
 export const rootReducer: Reducer<RootState, myAction>= (state = initalSatate, action) => { 
     switch (action.type) {
@@ -72,6 +77,13 @@ export const rootReducer: Reducer<RootState, myAction>= (state = initalSatate, a
             return {
                 ...state,
                 me: meReducer(state.me, action)
+            }
+        case POSTS_REQUEST:
+        case POSTS_REQUEST_SUCCESS:
+        case POSTS_REQUEST_ERROR:
+            return {
+                ...state,
+                posts: postsReducer(state.posts, action)
             }
     
         default:

@@ -5,7 +5,7 @@ import  { Header }  from './components/Header/Header';
 import  {Content}  from './components/Content/Content';
 import  {CardsList}  from './components/CardsList/CardsList';
 // import { useToken } from './hooks/useToken';
-import { PostsContextProvider } from './context/postsContext';
+// import { PostsContextProvider } from './context/postsContext';
 
 // redux
 import { saveToken } from './store/reducer';
@@ -28,9 +28,9 @@ export function App() {
         <Layout>
             <Header />
             <Content>
-                <PostsContextProvider>
+                {/* <PostsContextProvider> */}
                     <CardsList/>
-                </PostsContextProvider>
+                {/* </PostsContextProvider> */}
             </Content>
         </Layout>
 	)
