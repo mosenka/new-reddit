@@ -16,7 +16,7 @@ export function CardsList() {
   // const {posts, loading, errorLoading, nextAfter} = useContext(postsContext);
   const bottomOfList = useRef<HTMLDivElement>(null);
 
-   const posts = useSelector<RootState, Array<IPostItem>>(state => state.posts.data);
+  const posts = useSelector<RootState, Array<IPostItem>>(state => state.posts.data);
 	const loading = useSelector<RootState, boolean>(state => state.posts.loading);
 	const errorLoading = useSelector<RootState, string>(state => state.posts.errorLoading);
 	const nextAfter = useSelector<RootState, string>(state => state.posts.nextAfter);
@@ -49,7 +49,7 @@ export function CardsList() {
   }
 
   useEffect(() => {
-		if(!token) return;
+		// if(!token) return;
 		if(!bottomOfList.current) return;
 
 		const observer = new IntersectionObserver((enteries) => {
@@ -87,14 +87,14 @@ export function CardsList() {
 		}
 
 
-	}, [bottomOfList.current, nextAfter, token])
+	}, [bottomOfList.current, token, nextAfter])
 
 
   let list = posts.map(post => {
 
     const key = uuidv4();
     
-    return <Card title={post.data.title} url={`https://www.reddit.com/${post.data.permalink}`} img={post.data.thumbnail} userIcon={post.data.sr_detail.icon_img} userName={post.data.sr_detail.display_name} link={post.data.sr_detail.url} createdAt={post.data.created} key={key}/>;
+    return <Card title={post.data.title} url={`https://www.reddit.com/${post.data.permalink}`} img={post.data.thumbnail} userIcon={post.data.sr_detail.icon_img} userName={post.data.sr_detail.display_name} link={post.data.sr_detail.url} createdAt={post.data.created} key={key} id={post.data.name}/>;
 
   });
 

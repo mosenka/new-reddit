@@ -28,9 +28,7 @@ export function App() {
         <Layout>
             <Header />
             <Content>
-                {/* <PostsContextProvider> */}
-                    <CardsList/>
-                {/* </PostsContextProvider> */}
+                <CardsList/>
             </Content>
         </Layout>
 	)

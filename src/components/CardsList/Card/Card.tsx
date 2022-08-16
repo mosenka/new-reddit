@@ -16,17 +16,18 @@ interface ICardProps {
   userName: string;
   link: string;
   createdAt: number;
+  id: string;
 }
 
 
-export function Card({title, url, img, userIcon, userName, link, createdAt}: ICardProps) {
+export function Card({title, url, img, userIcon, userName, link, createdAt, id}: ICardProps) {
   return (
     <li className={styles.card}>
       <div className={styles.textContent}>
         < MetaData createdAt={createdAt}> 
             <UserLink userIcon={userIcon} userName={userName} link={link} />
           </MetaData>
-        < Title text={title} url={url}/>
+        < Title text={title} url={url} id={id}/>
       </div>
       < Preview img={img}/>
       < Menu />

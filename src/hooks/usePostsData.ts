@@ -37,15 +37,13 @@ export function usePostsData( bottomOfList : React.RefObject<HTMLDivElement>) {
 		if(!token) return;
 		if(!bottomOfList.current) return;
 
-		console.log(loading);
-		
 		
 		async function load() {
 			dispatch(postsRequest());
 			try {
 				// const {data: { data: {after, children }}} = await axios.get('https://oauth.reddit.com/best.json',{
 				// const {data: { data: { after, children }}} = await axios.get('https://oauth.reddit.com/rising.json',{
-				const {data: {  data }} = await axios.get('https://oauth.reddit.com/best.json',{
+				const {data: {  data : {after, children} }} = await axios.get('https://oauth.reddit.com/best.json',{
 					headers: {Authorization: `bearer ${token}`},
 					params: {
 						sr_detail: true,
@@ -53,8 +51,7 @@ export function usePostsData( bottomOfList : React.RefObject<HTMLDivElement>) {
 						after: nextAfter,
 					}
 				});
-				console.log(data);
-				dispatch( postsRequestSuccess(data.children, data.after) );
+				dispatch( postsRequestSuccess(children, after) );
 		
 			} catch (error) {
 				dispatch( postsRequestError( String(error) ) )
